@@ -1,0 +1,4 @@
+<div class="search-component">
+  <input matInput #searchBox id="search-box" placeholder="Search keyword..." (input)="clear(searchBox.value)"/>
+  <button mat-flat-button color="accent" class="search-btn" (click)="search(searchBox.value)">Search</button>
+</div>

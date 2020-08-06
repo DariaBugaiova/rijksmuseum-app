@@ -1,0 +1,38 @@
+$light-purple: #f3f0f8;
+$light-font: #f3f2f3;
+$light-gray: #70706f63;
+
+mat-card {
+  background-color: $light-purple;
+}
+
+.tile {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  &:hover>.short-info {
+    display: block;
+  }
+
+  .short-info {
+    display: none;
+    width: 100%;
+    max-height: 7rem;
+    position: absolute;
+    overflow: hidden;
+    bottom: 0;
+    color: $light-font;
+    background-color: $light-gray;
+  }
+}
+
+@media (max-width: 900px) {
+  .tile {
+    height: .8rem;
+  }
+}
+

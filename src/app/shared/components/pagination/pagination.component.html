@@ -1,0 +1,14 @@
+<div class="page-container">
+    <section class="pages-number">
+      <span *ngFor="let page of pagesArray; let i = index"
+            (click)="setPage(i + 1)"
+            [ngClass]="{'ordered-item': i+1 === currentPage}">{{ i + 1 }}</span>
+    </section>
+
+    <div class="size-section">
+      <span *ngFor="let item of itemsControl" (click)="setSize(item)"
+            [ngClass]="{'ordered-item': item === currentSize}">
+        {{item}}
+      </span>
+    </div>
+</div>

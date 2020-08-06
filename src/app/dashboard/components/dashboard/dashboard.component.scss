@@ -1,0 +1,40 @@
+$light-purple: #f3f0f8;
+
+.art-objects-card {
+  margin-right: 32px;
+  flex: 0 1 calc(16% - 32px);
+}
+
+.container {
+  max-width: 140rem;
+  margin: 20px auto;
+  padding-left: 5%;
+
+  .cards-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    grid-row-gap: 16px;
+    padding-left: 40px;
+    margin: 20px auto;
+  }
+}
+
+header {
+  margin: 3rem auto;
+  max-width: 124rem;
+
+  .order-by, .search-art {
+    display: inline-block;
+  }
+
+  .order-by {
+    width: 20%;
+  }
+
+  .search-art {
+    width: 80%;
+  }
+}
+

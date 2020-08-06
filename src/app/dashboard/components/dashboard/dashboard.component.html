@@ -1,0 +1,28 @@
+<header>
+  <app-order-by (orderBy)="orderBy($event)"
+                (clearSearch)="clearSearch($event)"
+                class="order-by">
+  </app-order-by>
+
+  <app-search-art (searchName)="searchName($event)"
+                  (clearSearch)="clearSearch($event)"
+                  class="search-art">
+  </app-search-art>
+</header>
+
+<section class="container">
+  <div class="cards-container" *ngIf="!showMessageNoResult(); else textDef">
+    <app-card [artObject]="artObject"
+              (click)="openDialog(artObject.objectNumber)"
+              class="art-objects-card"
+              *ngFor="let artObject of artObjects$ | async"
+    ></app-card>
+  </div>
+
+  <app-pagination [setPagination]="objectsCount$ | async"
+                  (goToPage)="goToPage($event)"></app-pagination>
+</section>
+
+<ng-template #textDef> No art object could be found by your query </ng-template>
+
+

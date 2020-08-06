@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>{{data.title}}</h1>
+<div mat-dialog-content>
+  <img class="art-image"
+       src="{{data.webImage.url}}">
+  <div class="image-description"> {{data.description}} </div>
+</div>
+<div mat-dialog-actions class="btn-container">
+  <button mat-button class="tile-btn" [mat-dialog-close]="data" cdkFocusInitial>View more details</button>
+  <button mat-button  class="tile-btn" (click)="onNoClick()">Close</button>
+</div>

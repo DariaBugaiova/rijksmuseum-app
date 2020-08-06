@@ -1,0 +1,12 @@
+.search-component {
+  #search-box {
+    width: 70%;
+    height: 2.5rem;
+    margin-right: 2rem;
+    text-align: center;
+  }
+
+   &>.search-btn {
+    width: 20%;
+  }
+}

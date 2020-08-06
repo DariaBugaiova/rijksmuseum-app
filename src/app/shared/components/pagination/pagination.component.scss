@@ -1,0 +1,35 @@
+$active-item: #6495ED;
+
+.page-container {
+  margin: 4rem 2rem;
+}
+
+.pages-number {
+  display: block;
+  width: 32rem;
+  overflow: hidden;
+  margin: 0 auto;
+  font-weight: bold;
+  cursor: pointer;
+
+    &>* {
+      padding: 0 5px;
+    }
+}
+
+.ordered-item {
+  color: $active-item;
+}
+
+.size-section {
+  position: relative;
+  width: 100px;
+  padding-right: 4.5rem;
+  float: right;
+  top: -1.5rem;
+  cursor: pointer;
+
+  & > span:not(:last-child)::after {
+    content: '|'
+  }
+}

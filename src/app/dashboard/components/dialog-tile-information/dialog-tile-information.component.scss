@@ -1,0 +1,20 @@
+.art-image {
+  width: 20rem;
+  float: left;
+  margin-right: 20px;
+}
+
+.image-description {
+  height: 20rem;
+  overflow: hidden;
+}
+
+.mat-button {
+  min-width: 110px;
+  margin: 0 3rem;
+  background-color: #e9e0e9;
+
+  &:hover {
+    background-color: #cec3ce;
+  }
+}
