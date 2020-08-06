@@ -17,6 +17,7 @@ import {ActivatedRoute, Router} from '@angular/router';
 export class DashboardComponent implements OnInit, OnDestroy {
   subscription1$: Subscription = new Subscription();
   subscription2$: Subscription = new Subscription();
+  subscription3$: Subscription = new Subscription();
 
   artObjects$: Observable<ArtObject[]>;
   objectsCount$: Observable<number>;
@@ -31,10 +32,18 @@ export class DashboardComponent implements OnInit, OnDestroy {
               public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this.artObjectService.getArtObjects();
-
     this.artObjects$ = this.artObjectService.artObjects;
     this.objectsCount$ = this.artObjectService.objectsCount;
+
+    this.subscription3$ = this.route.queryParams.subscribe(
+      (val: {name: string, type: string}) => {
+        if (val.type) {
+          this.artObjectService.searchArtObjectsByCategory(val.name, val.type);
+        } else {
+          this.artObjectService.getArtObjects();
+        }
+      }
+    );
   }
 
   public searchName(term: string): void {
@@ -101,9 +110,7 @@ export class DashboardComponent implements OnInit, OnDestroy {
           });
 
           dialogRef.afterClosed().subscribe(result => {
-            console.log('The dialog was closed');
             if (result) {
-              console.log(result);
               this.router.navigate([`/detail-page/${id}`]
               );
             }
@@ -114,5 +121,6 @@ export class DashboardComponent implements OnInit, OnDestroy {
   ngOnDestroy(): void {
     this.subscription1$.unsubscribe();
     this.subscription2$.unsubscribe();
+    this.subscription3$.unsubscribe();
   }
 }

@@ -1,16 +1,16 @@
-<header>
-  <app-order-by (orderBy)="orderBy($event)"
-                (clearSearch)="clearSearch($event)"
-                class="order-by">
-  </app-order-by>
-
-  <app-search-art (searchName)="searchName($event)"
-                  (clearSearch)="clearSearch($event)"
-                  class="search-art">
-  </app-search-art>
-</header>
-
 <section class="container">
+  <header>
+    <app-order-by (orderBy)="orderBy($event)"
+                  (clearSearch)="clearSearch($event)"
+                  class="order-by">
+    </app-order-by>
+
+    <app-search-art (searchName)="searchName($event)"
+                    (clearSearch)="clearSearch($event)"
+                    class="search-art">
+    </app-search-art>
+  </header>
+
   <div class="cards-container" *ngIf="!showMessageNoResult(); else textDef">
     <app-card [artObject]="artObject"
               (click)="openDialog(artObject.objectNumber)"

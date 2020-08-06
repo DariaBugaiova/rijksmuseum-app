@@ -1,0 +1,29 @@
+.detail-container {
+  margin: 5rem;
+
+  &>.list-doc li{
+    padding: 1rem 0;
+  }
+}
+
+.object-image {
+  width: 30rem;
+  float: left;
+  margin-right: 5rem;
+}
+
+.category-btn {
+  margin: 1rem;
+
+  &:nth-child(odd) {
+    background-color: #cec3ce;
+  }
+}
+
+.categories-box {
+  margin: 20px 0;
+}
+
+.type-name {
+  text-transform: capitalize;
+}

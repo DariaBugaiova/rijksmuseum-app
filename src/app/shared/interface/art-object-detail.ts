@@ -11,6 +11,9 @@ export interface ArtObjectDetail extends ArtObject{
   titles: string;
   description: string;
   objectTypes: string[];
-  material: string;
+  materials: string[];
+  techniques: string[];
   catRefRPK: string[];
+  documentation: string[];
+  principalMaker: {name: string};
 }

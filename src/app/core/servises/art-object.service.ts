@@ -49,6 +49,11 @@ export class ArtObjectService {
     this.getArtObjects(params);
   }
 
+  public searchArtObjectsByCategory(name: string, type: string): void {
+    const params = this.params.append(name, type);
+    this.getArtObjects(params);
+  }
+
   public getArtObject(id: string): Observable<TilesDetailInfo> {
     const params = new HttpParams().set('key', this.apiKey);
     return this.http.get<any>(`https://www.rijksmuseum.nl/api/en/collection/${id}`, {params})

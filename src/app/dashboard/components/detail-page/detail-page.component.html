@@ -1,3 +1,42 @@
-<p>{{data?.artObject.title}}</p>
-<img class="object-image" alt="art object" src="{{data?.artObject.webImage.url}}">
-<p>{{data?.artObject.description}}</p>
+<div class="detail-container">
+  <h2 mat-dialog-title>{{artObject?.title}}</h2>
+  <img class="object-image" alt="art object" src="{{artObject?.webImage.url}}">
+  <p>{{artObject?.description || artObject?.longTitle}}</p>
+
+  <div class="categories-box">
+    <h3 mat-dialog-title>Categories:</h3>
+
+    <mat-list class="categories-list">
+      <mat-list-item *ngIf="artObject?.principalMaker.name">
+          Maker:
+          <a [routerLink]="['/dashboard']"
+             [queryParams]="{name: 'principalMaker', type: artObject?.principalMaker.name}"> {{artObject?.principalMaker.name}}</a>
+      </mat-list-item>
+        <mat-list-item *ngFor="let type of types">
+
+          <span class="type-name">{{type.name}}:</span>
+          <span *ngFor="let item of artObject[type.prop_name]">
+            <a [routerLink]="['/dashboard']"
+               mat-button color="accent"
+               [queryParams]="{name: type.link, type: item}">
+              {{item}}
+            </a>
+          </span>
+        </mat-list-item>
+    </mat-list>
+  </div>
+
+  <h3 *ngIf="artObject?.documentation.length">Documentation</h3>
+  <ol class="list-doc">
+    <li *ngFor="let item of artObject?.documentation">{{item}}</li>
+  </ol>
+
+
+  <div *ngIf="tags?.length">
+    <p>Tags:</p>
+    <button mat-flat-button color="accent"
+            class="category-btn"
+            *ngFor="let tag of tags"
+            [routerLink]="['/dashboard']" [queryParams]="{'type': tag}">{{ tag || 'Go back'}}</button>
+  </div>
+</div>
